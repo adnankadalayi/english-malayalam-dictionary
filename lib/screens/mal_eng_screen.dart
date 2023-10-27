@@ -15,6 +15,7 @@ class MalEngScreen extends StatelessWidget {
           () => const EngMalScreen(),
         );
         dictionaryList.clear();
+        userInput.value = '';
         dictionaryDataMap.clear();
       },
       child: BaseScreen(
@@ -26,6 +27,7 @@ class MalEngScreen extends StatelessWidget {
             () => const EngMalScreen(),
           );
           dictionaryList.clear();
+          userInput.value = '';
           dictionaryDataMap.clear();
         },
         listData: malayalamWordsList,

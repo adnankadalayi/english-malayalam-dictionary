@@ -16,6 +16,7 @@ class EngMalScreen extends StatelessWidget {
         );
         dictionaryList.clear();
         dictionaryDataMap.clear();
+        userInput.value = '';
       },
       child: BaseScreen(
         color: Colors.blue,
@@ -27,6 +28,7 @@ class EngMalScreen extends StatelessWidget {
           );
           dictionaryList.clear();
           dictionaryDataMap.clear();
+          userInput.value = '';
         },
         listData: englishWordsList,
       ),

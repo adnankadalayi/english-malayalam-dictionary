@@ -34,13 +34,10 @@ void englishWordsList() {
       )
       .toList();
   dictionaryList.value = result;
-  if (userInput.value == '') {
-    dictionaryList.clear();
-    dictionaryDataMap.clear();
-  }
 
+  var dictionaryKeys = dictionaryDataMap.keys.toSet();
   for (var element in dictionaryList) {
-    if (dictionaryDataMap.keys.contains(element.englishWord)) {
+    if (dictionaryKeys.contains(element.englishWord)) {
       dictionaryDataMap[element.englishWord]?.add({
         'type': element.partOfSpeech,
         'meaning': element.malayalamDefinition
@@ -79,13 +76,19 @@ void malayalamWordsList() {
     dictionaryDataMap.clear();
   }
 
+  var dictionaryKeys = dictionaryDataMap.keys.toSet();
   for (var element in dictionaryList) {
-    if (dictionaryDataMap.keys.contains(element.malayalamDefinition)) {
-      dictionaryDataMap[element.malayalamDefinition]
-          ?.add({'type': element.partOfSpeech, 'meaning': element.englishWord});
+    if (dictionaryKeys.contains(element.malayalamDefinition)) {
+      dictionaryDataMap[element.malayalamDefinition]?.add({
+        'type': element.partOfSpeech,
+        'meaning': element.englishWord,
+      });
     } else {
       dictionaryDataMap[element.malayalamDefinition] = [
-        {'type': element.partOfSpeech, 'meaning': element.englishWord}
+        {
+          'type': element.partOfSpeech,
+          'meaning': element.englishWord,
+        }
       ];
     }
   }
