@@ -12,7 +12,7 @@ void defintionAlertDialog(var id) async {
   if (dictionaryDataMap.containsKey(id)) {
     data = dictionaryDataMap[id];
   }
-
+  print(data);
   if (historyMap.keys.contains(id)) {
   } else {
     historyMap[id] = data;

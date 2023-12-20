@@ -50,22 +50,27 @@ class BaseScreen extends StatelessWidget {
         ),
         appBar: AppBar(
           backgroundColor: color,
-          title: Text(appBarText),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Get.defaultDialog(
-                  title: 'Share this app',
-                  middleText: 'Not Implemented yet',
-                  textCancel: 'back',
-                );
-              },
-              icon: const Icon(
-                Icons.share,
-                color: Colors.yellow,
-              ),
+          title: Text(
+            appBarText,
+            style: const TextStyle(
+              color: Colors.white,
             ),
-          ],
+          ),
+          // actions: [
+          //   IconButton(
+          //     onPressed: () {
+          //       Get.defaultDialog(
+          //         title: 'Share this app',
+          //         middleText: 'Not Implemented yet',
+          //         textCancel: 'back',
+          //       );
+          //     },
+          //     icon: const Icon(
+          //       Icons.share,
+          //       color: Colors.yellow,
+          //     ),
+          //   ),
+          // ],
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(35),
             child: Row(
@@ -98,6 +103,9 @@ class BaseScreen extends StatelessWidget {
                         ),
                         child: const Text(
                           'മലയാളം->Eng',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -182,16 +190,11 @@ class BaseScreen extends StatelessWidget {
                 userInput.isEmpty
                     ? Expanded(
                         child: IconButton(
-                          onPressed: () {
-                            Get.defaultDialog(
-                              title: 'Really?',
-                              middleText: 'Just Type Manh',
-                              textCancel: 'Okay',
-                            );
-                          },
+                          onPressed: () {},
+                          disabledColor: Colors.grey,
                           icon: const Icon(
                             Icons.mic_none,
-                            color: Colors.white,
+                            // color: Colors.white,
                           ),
                         ),
                       )

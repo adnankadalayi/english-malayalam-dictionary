@@ -35,17 +35,21 @@ void englishWordsList() {
       .toList();
   dictionaryList.value = result;
 
-  var dictionaryKeys = dictionaryDataMap.keys.toSet();
+  Set<String> dictionaryKeys = dictionaryDataMap.keys.toSet();
+
   for (var element in dictionaryList) {
-    if (dictionaryKeys.contains(element.englishWord)) {
-      dictionaryDataMap[element.englishWord]?.add({
+    var englishWord = element.englishWord;
+
+    if (dictionaryKeys.contains(englishWord)) {
+      dictionaryDataMap[englishWord]!.add({
         'type': element.partOfSpeech,
         'meaning': element.malayalamDefinition
       });
     } else {
-      dictionaryDataMap[element.englishWord] = [
+      dictionaryDataMap[englishWord] = [
         {'type': element.partOfSpeech, 'meaning': element.malayalamDefinition}
       ];
+      dictionaryKeys.add(englishWord);
     }
   }
 }
@@ -76,20 +80,24 @@ void malayalamWordsList() {
     dictionaryDataMap.clear();
   }
 
-  var dictionaryKeys = dictionaryDataMap.keys.toSet();
+  Set<String> dictionaryKeys = dictionaryDataMap.keys.toSet();
+
   for (var element in dictionaryList) {
-    if (dictionaryKeys.contains(element.malayalamDefinition)) {
-      dictionaryDataMap[element.malayalamDefinition]?.add({
+    var malayalamWord = element.malayalamDefinition;
+
+    if (dictionaryKeys.contains(malayalamWord)) {
+      dictionaryDataMap[malayalamWord]!.add({
         'type': element.partOfSpeech,
         'meaning': element.englishWord,
       });
     } else {
-      dictionaryDataMap[element.malayalamDefinition] = [
+      dictionaryDataMap[malayalamWord] = [
         {
           'type': element.partOfSpeech,
           'meaning': element.englishWord,
         }
       ];
+      dictionaryKeys.add(malayalamWord);
     }
   }
 }

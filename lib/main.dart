@@ -22,8 +22,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      home: EngMalScreen(),
+    return GetMaterialApp(
+      home: const EngMalScreen(),
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+        color: Colors.blue,
+        foregroundColor: Colors.white,
+      )),
     );
   }
 }
